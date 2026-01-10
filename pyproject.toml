@@ -3,7 +3,7 @@ requires = ["uv_build"]
 build-backend = "uv_build"
 
 [project]
-name = "foo"
+name = "foo"  # TODO: replace with your package name
 version = "0.0.0"
 description = "package description"
 readme = "README.md"

@@ -27,5 +27,7 @@ jobs:
       - name: checks
         run: make checks
       - name: publish
-        if: github.event.pull_request.merged == 'true'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: make publish
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
