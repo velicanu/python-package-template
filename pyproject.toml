@@ -1,0 +1,29 @@
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[project]
+name = "foo"
+version = "0.0.0"
+description = "package description"
+readme = "README.md"
+dependencies = ["typer"]
+
+[project.scripts]
+foo = "foo:entrypoint"
+
+[dependency-groups]
+dev = [
+  {include-group = "lint"},
+  {include-group = "test"}
+]
+test = [
+    "pytest",
+]
+lint = [
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+testpaths = ["tests"]
